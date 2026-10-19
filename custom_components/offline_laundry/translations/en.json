@@ -1,0 +1,165 @@
+{
+  "common": {
+    "notification_title": "{name} is done",
+    "notification_message": "The laundry is ready.",
+    "notification_message_load": "{load} is ready.",
+    "notification_action_emptied": "Emptied"
+  },
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add laundry appliance",
+        "description": "A timer that behaves like a washing machine or dryer.",
+        "data": {
+          "name": "Name",
+          "appliance_type": "Appliance",
+          "notify_targets": "Notify"
+        },
+        "data_description": {
+          "notify_targets": "Phones with the Companion app to notify when the laundry is done."
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "appliance_type": "Appliance",
+          "notify_targets": "Notify"
+        },
+        "data_description": {
+          "notify_targets": "Phones with the Companion app to notify when the laundry is done."
+        }
+      }
+    }
+  },
+  "selector": {
+    "appliance_type": {
+      "options": {
+        "washer": "Washing machine",
+        "dryer": "Dryer"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "washer": {
+        "state": {
+          "idle": "Ready",
+          "running": "Running",
+          "paused": "Paused",
+          "finished": "Finished – needs emptying"
+        },
+        "state_attributes": {
+          "load": {
+            "name": "Load"
+          },
+          "duration": {
+            "name": "Duration"
+          },
+          "finishes_at": {
+            "name": "Finishes at"
+          },
+          "remaining": {
+            "name": "Remaining"
+          }
+        }
+      },
+      "dryer": {
+        "state": {
+          "idle": "Ready",
+          "running": "Running",
+          "paused": "Paused",
+          "finished": "Finished – needs emptying"
+        },
+        "state_attributes": {
+          "load": {
+            "name": "Load"
+          },
+          "duration": {
+            "name": "Duration"
+          },
+          "finishes_at": {
+            "name": "Finishes at"
+          },
+          "remaining": {
+            "name": "Remaining"
+          }
+        }
+      },
+      "finishes_at": {
+        "name": "Finishes at"
+      }
+    },
+    "event": {
+      "cycle": {
+        "name": "Cycle",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "started": "Started",
+              "paused": "Paused",
+              "resumed": "Resumed",
+              "cancelled": "Cancelled",
+              "finished": "Finished",
+              "emptied": "Emptied"
+            }
+          }
+        }
+      }
+    }
+  },
+  "services": {
+    "start": {
+      "name": "Start load",
+      "description": "Starts a new load.",
+      "fields": {
+        "duration": {
+          "name": "Duration",
+          "description": "How long the load takes."
+        },
+        "load": {
+          "name": "Load",
+          "description": "Optional name, e.g. Colors 40°."
+        }
+      }
+    },
+    "pause": {
+      "name": "Pause",
+      "description": "Pauses the running load."
+    },
+    "resume": {
+      "name": "Resume",
+      "description": "Resumes the paused load."
+    },
+    "cancel": {
+      "name": "Cancel",
+      "description": "Cancels the running or paused load."
+    },
+    "empty": {
+      "name": "Emptied",
+      "description": "Marks the appliance as emptied."
+    }
+  },
+  "exceptions": {
+    "not_idle": {
+      "message": "{name} is not ready. Empty or cancel it first."
+    },
+    "not_running": {
+      "message": "{name} is not running."
+    },
+    "not_paused": {
+      "message": "{name} is not paused."
+    },
+    "not_active": {
+      "message": "{name} has no active load."
+    },
+    "not_finished": {
+      "message": "{name} is not finished yet."
+    },
+    "invalid_duration": {
+      "message": "The duration must be greater than 0."
+    }
+  }
+}

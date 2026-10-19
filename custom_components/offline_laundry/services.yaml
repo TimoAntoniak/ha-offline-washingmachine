@@ -1,0 +1,45 @@
+start:
+  target:
+    entity:
+      integration: offline_laundry
+      domain: sensor
+      device_class: enum
+  fields:
+    duration:
+      required: true
+      example: "01:30:00"
+      selector:
+        duration:
+    load:
+      required: false
+      example: "Buntwäsche 40°"
+      selector:
+        text:
+
+pause:
+  target:
+    entity:
+      integration: offline_laundry
+      domain: sensor
+      device_class: enum
+
+resume:
+  target:
+    entity:
+      integration: offline_laundry
+      domain: sensor
+      device_class: enum
+
+cancel:
+  target:
+    entity:
+      integration: offline_laundry
+      domain: sensor
+      device_class: enum
+
+empty:
+  target:
+    entity:
+      integration: offline_laundry
+      domain: sensor
+      device_class: enum

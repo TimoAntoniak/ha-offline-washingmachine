@@ -1,0 +1,50 @@
+[project]
+name = "offline-laundry"
+version = "0.1.0"
+requires-python = ">=3.14"
+
+[dependency-groups]
+dev = [
+    "pytest-homeassistant-custom-component==0.13.373",
+    "home-assistant-frontend==20260930.4",
+    "ruff",
+    "mypy",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py314"
+
+[tool.ruff.lint]
+select = [
+    "A", "ASYNC", "B", "BLE", "C4", "D", "E", "F", "FLY", "G", "I", "LOG",
+    "N", "PERF", "PGH", "PIE", "PL", "PT", "RET", "RSE", "RUF", "S", "SIM",
+    "SLF", "T20", "TID", "TRY", "UP", "W",
+]
+ignore = [
+    "D202", "D203", "D213", "D406", "D407",
+    "E501",
+    "PLR0913",
+    "PLR2004",
+    "RUF012",  # HA entity _attr_* class attributes
+    "S101",
+    "TRY003",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D", "SLF001", "PLR0915"]
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+known-first-party = ["homeassistant"]
+combine-as-imports = true
+
+[tool.mypy]
+python_version = "3.14"
+strict = true
+packages = ["custom_components.offline_laundry"]
+implicit_reexport = true  # HA re-exports public names without __all__

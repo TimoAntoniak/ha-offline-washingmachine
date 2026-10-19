@@ -1,0 +1,13 @@
+{
+  "domain": "offline_laundry",
+  "name": "Offline Laundry",
+  "codeowners": ["@TimoAntoniak"],
+  "config_flow": true,
+  "dependencies": ["frontend", "http"],
+  "documentation": "https://github.com/TimoAntoniak/ha-offline-washingmachine",
+  "integration_type": "helper",
+  "iot_class": "calculated",
+  "issue_tracker": "https://github.com/TimoAntoniak/ha-offline-washingmachine/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "sensor": {
+      "washer": {
+        "default": "mdi:washing-machine",
+        "state": {
+          "idle": "mdi:washing-machine-off",
+          "paused": "mdi:pause-circle-outline",
+          "finished": "mdi:washing-machine-alert"
+        }
+      },
+      "dryer": {
+        "default": "mdi:tumble-dryer",
+        "state": {
+          "idle": "mdi:tumble-dryer-off",
+          "paused": "mdi:pause-circle-outline",
+          "finished": "mdi:tumble-dryer-alert"
+        }
+      },
+      "finishes_at": {
+        "default": "mdi:timer-check-outline"
+      }
+    },
+    "event": {
+      "cycle": {
+        "default": "mdi:basket-outline"
+      }
+    }
+  },
+  "services": {
+    "start": { "service": "mdi:play" },
+    "pause": { "service": "mdi:pause" },
+    "resume": { "service": "mdi:play-pause" },
+    "cancel": { "service": "mdi:stop" },
+    "empty": { "service": "mdi:basket-check-outline" }
+  }
+}

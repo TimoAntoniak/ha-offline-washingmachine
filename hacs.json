@@ -1,0 +1,7 @@
+{
+  "name": "Offline Laundry",
+  "homeassistant": "2026.10.0",
+  "zip_release": true,
+  "filename": "offline_laundry.zip",
+  "render_readme": true
+}

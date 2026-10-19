@@ -1,0 +1,165 @@
+{
+  "common": {
+    "notification_title": "{name} ist fertig",
+    "notification_message": "Die Wäsche kann raus.",
+    "notification_message_load": "{load} kann raus.",
+    "notification_action_emptied": "Geleert"
+  },
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wäschegerät hinzufügen",
+        "description": "Ein Timer, der wie eine Waschmaschine oder ein Trockner funktioniert.",
+        "data": {
+          "name": "Name",
+          "appliance_type": "Gerät",
+          "notify_targets": "Benachrichtigen"
+        },
+        "data_description": {
+          "notify_targets": "Handys mit der Companion-App, die benachrichtigt werden, wenn die Wäsche fertig ist."
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "appliance_type": "Gerät",
+          "notify_targets": "Benachrichtigen"
+        },
+        "data_description": {
+          "notify_targets": "Handys mit der Companion-App, die benachrichtigt werden, wenn die Wäsche fertig ist."
+        }
+      }
+    }
+  },
+  "selector": {
+    "appliance_type": {
+      "options": {
+        "washer": "Waschmaschine",
+        "dryer": "Trockner"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "washer": {
+        "state": {
+          "idle": "Bereit",
+          "running": "Läuft",
+          "paused": "Pausiert",
+          "finished": "Fertig – bitte leeren"
+        },
+        "state_attributes": {
+          "load": {
+            "name": "Wäsche"
+          },
+          "duration": {
+            "name": "Dauer"
+          },
+          "finishes_at": {
+            "name": "Fertig um"
+          },
+          "remaining": {
+            "name": "Restzeit"
+          }
+        }
+      },
+      "dryer": {
+        "state": {
+          "idle": "Bereit",
+          "running": "Läuft",
+          "paused": "Pausiert",
+          "finished": "Fertig – bitte leeren"
+        },
+        "state_attributes": {
+          "load": {
+            "name": "Wäsche"
+          },
+          "duration": {
+            "name": "Dauer"
+          },
+          "finishes_at": {
+            "name": "Fertig um"
+          },
+          "remaining": {
+            "name": "Restzeit"
+          }
+        }
+      },
+      "finishes_at": {
+        "name": "Fertig um"
+      }
+    },
+    "event": {
+      "cycle": {
+        "name": "Waschgang",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "started": "Gestartet",
+              "paused": "Pausiert",
+              "resumed": "Fortgesetzt",
+              "cancelled": "Abgebrochen",
+              "finished": "Fertig",
+              "emptied": "Geleert"
+            }
+          }
+        }
+      }
+    }
+  },
+  "services": {
+    "start": {
+      "name": "Wäsche starten",
+      "description": "Startet eine neue Wäsche.",
+      "fields": {
+        "duration": {
+          "name": "Dauer",
+          "description": "Wie lange die Wäsche dauert."
+        },
+        "load": {
+          "name": "Wäsche",
+          "description": "Optionaler Name, z. B. Buntwäsche 40°."
+        }
+      }
+    },
+    "pause": {
+      "name": "Pausieren",
+      "description": "Pausiert die laufende Wäsche."
+    },
+    "resume": {
+      "name": "Fortsetzen",
+      "description": "Setzt die pausierte Wäsche fort."
+    },
+    "cancel": {
+      "name": "Abbrechen",
+      "description": "Bricht die laufende oder pausierte Wäsche ab."
+    },
+    "empty": {
+      "name": "Geleert",
+      "description": "Markiert das Gerät als geleert."
+    }
+  },
+  "exceptions": {
+    "not_idle": {
+      "message": "{name} ist nicht bereit. Erst leeren oder abbrechen."
+    },
+    "not_running": {
+      "message": "{name} läuft gerade nicht."
+    },
+    "not_paused": {
+      "message": "{name} ist nicht pausiert."
+    },
+    "not_active": {
+      "message": "{name} hat keine laufende Wäsche."
+    },
+    "not_finished": {
+      "message": "{name} ist noch nicht fertig."
+    },
+    "invalid_duration": {
+      "message": "Die Dauer muss größer als 0 sein."
+    }
+  }
+}
